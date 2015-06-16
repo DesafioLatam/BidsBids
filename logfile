@@ -1,3 +1,27 @@
 LOG:  database system was shut down at 2015-06-12 18:08:47 CLT
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-06-13 00:34:34', '2015-06-13 00:34:34', 298486374)
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-06-13 00:34:34', '2015-06-13 00:34:34', 298486374)
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-06-13 00:34:34', '2015-06-13 00:34:34', 298486374)
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-06-13 00:34:34', '2015-06-13 00:34:34', 298486374)
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2015-06-15 19:29:42 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

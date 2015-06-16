@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: gonzalo
+  product: one
+
+two:
+  user: gonzalo
+  product: two
+
+three:
+  user: pablo
+  product: one
