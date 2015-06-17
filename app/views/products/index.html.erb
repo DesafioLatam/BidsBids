@@ -1,0 +1,17 @@
+<h1>Productos</h1>
+
+<div class="product-wrapper">
+	<% @products.each do |product| %>
+		<div>
+			<%= image_tag product.imagen %>
+			<div class="product-info">
+				<h2><%= product.name %></h2>
+				<p><%= product.description %></p>
+				<p class="price"><%= number_to_currency product.price %></p>
+				<%= form_for [product, @bid] do |f| %>
+				  <%= f.submit "Bids", disable_with: 'Bidsing...' %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

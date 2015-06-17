@@ -29,5 +29,7 @@ group :development, :test do
   gem 'better_errors'
 
   gem 'faker'
+
+  gem 'minitest-reporters'
 end
 

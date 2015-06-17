@@ -8,4 +8,9 @@ class Product < ActiveRecord::Base
   validates :name, :description, :price, :imagen, presence: true
 
   has_many :bids
+
+  def expiration_time
+    self.created_at + 1.hour + self.bids.count * 2.minutes
+  end
+
 end

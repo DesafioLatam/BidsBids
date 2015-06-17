@@ -5,9 +5,11 @@ one:
   description: MyText
   imagen: MyString
   price: 20
+  created_at: <%= Time.zone.now %>
 
 two:
   name: MyString
   description: MyText
   imagen: MyString
   price: 15
+  created_at: <%= Time.zone.now %>
