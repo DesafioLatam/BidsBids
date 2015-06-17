@@ -2,8 +2,7 @@ class Bid < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
 
-  validate :consecutive, on: :create
-  validate :product_expired, on: :create
+  validate :consecutive, :product_expired, on: :create
 
   def consecutive
     return if self.product.nil?
