@@ -8,7 +8,21 @@
 </head>
 <body>
 
+<% if notice %>
+	<div class="notice_wrapper">
+		<p class="notice"><%= notice %></p>
+	</div>
+<% elsif alert %>
+	<div class="notice_wrapper">
+		<p class="alert"><%= alert %></p>
+	</div>
+<% end %>
+
+
+<div class="container">
+<%= render 'shared/navbar' %>
 <%= yield %>
+</div>
 
 </body>
 </html>

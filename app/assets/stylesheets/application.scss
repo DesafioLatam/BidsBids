@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+.notice_wrapper {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 999;
+	background-color: rgba(189, 71, 57, 0.9);
+
+	.alert, .notice {
+		padding: 2.5rem;
+		text-align: center;
+		color: #FFF;
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+}

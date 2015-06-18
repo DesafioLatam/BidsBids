@@ -2,14 +2,14 @@
 
 <div class="product-wrapper">
 	<% @products.each do |product| %>
-		<div>
+		<div class="product">
 			<%= image_tag product.imagen %>
 			<div class="product-info">
 				<h2><%= product.name %></h2>
-				<p><%= product.description %></p>
+				<p><%= truncate product.description %></p>
 				<p class="price"><%= number_to_currency product.price %></p>
 				<%= form_for [product, @bid] do |f| %>
-				  <%= f.submit "Bids", disable_with: 'Bidsing...' %>
+				  <%= f.submit "Bids", disable_with: 'Bidsing...', class: 'button' %>
 				<% end %>
 			</div>
 		</div>

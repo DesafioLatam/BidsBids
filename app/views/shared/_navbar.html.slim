@@ -1,0 +1,7 @@
+p
+  - unless user_signed_in?
+    span<> = link_to 'Ingresar', new_user_session_path
+    span<> = link_to 'Registrar', new_user_registration_path
+  - else
+    span<> = link_to current_user.email, edit_user_registration_path
+    span<> = link_to 'Salir', destroy_user_session_path, method: :delete, data: {confirm: 'Seguro que desea salir?'}
