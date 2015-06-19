@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
 
   has_many :bids
 
+  scope :premium, ->{where(premium: true)}
+
   def expiration_time
     self.created_at + 1.hour + self.bids.count * 2.minutes
   end

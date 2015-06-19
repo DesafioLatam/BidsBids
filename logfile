@@ -29,3 +29,5 @@ LOG:  database system was shut down at 2015-06-18 17:59:15 CLT
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1

@@ -16,6 +16,10 @@ gem 'devise'
 
 gem 'slim'
 
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'active_admin_theme'
+
 
 group :development, :test do
   gem 'byebug'
