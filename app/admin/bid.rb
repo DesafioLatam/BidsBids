@@ -1,22 +1,22 @@
 ActiveAdmin.register Bid do
-
-  controller do
-    def scoped_collection
-      Bid.includes(:user, :product)
-    end
-  end
+  includes :user, :product
 
   menu priority: 3
   actions :index, :show
 
   filter :product
-  filter :user, as: :select, collection: proc { User.all.map { |u| [u.email, u.id] } }
+  filter :user, as: :select, collection: User.all.map {|u| [u.email, u.id] }
 
   index do
-    column("Orden", sortable: :id) {|bid| link_to "#{bid.id}", admin_bid_path(bid)}
-    column('Producto') {|bid| bid.product.name}
-    column('Usuario', :user, sortable: :user_id)
-    column('Precio actual') {|bid| number_to_currency bid.product.price}
+    selectable_column
+    column 'Bid Nº' do |bid|
+      link_to bid.id, admin_bid_path(bid)
+    end
+    column 'Producto', :product, sortable: 'products.name'
+    column 'Usuario', :user, sortable: 'users.email'
+    column 'Precio actual' do |bid|
+      number_to_currency bid.product.price
+    end
   end
 
 end

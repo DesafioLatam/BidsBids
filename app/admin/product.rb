@@ -7,61 +7,56 @@ ActiveAdmin.register Product do
   scope :all, default: true
   scope :premium
 
-  index as: :grid do |product|
+  index as: :grid, columns: 5 do |product|
     div do
       a href: admin_product_path(product) do
         image_tag product.imagen
       end
-       a truncate product.name, href: admin_product_path(product)
+    end
+    span do
+      link_to truncate(product.name), admin_product_path(product),
+        style: 'display:block; text-align: center;'
     end
   end
 
   show do
-    panel 'Producto' do
-      table_for product do |t|
-        tr do
-          td 'Nombre:'
-          td product.name
-        end
-        tr do
-          td 'Descripcion:'
-          td product.description
-        end
-        tr do
-          td 'Imagen:'
-          td do
-            image_tag product.imagen
+    tabs do
+      tab 'Detalles' do
+        attributes_table do
+          row :name
+          row :description
+          row :image do |p|
+            image_tag p.imagen
+          end
+          row :price do |p|
+            number_to_currency p.price
           end
         end
-        tr do
-          td 'Precio:'
-          td number_to_currency product.price
-        end
-        tr do
-          td 'Premium:'
-          td product.premium
-        end
+      end
+
+      tab 'Comentarios' do
+        active_admin_comments
       end
     end
   end
 
 
   form do |f|
-    inputs 'Detalles' do
-      input :name
-      input :description
-      input :price
+    f.inputs 'Detalles' do
+      f.input :name
+      f.input :description
+      f.input :price
     end
 
-    inputs 'Otros' do
-      input :imagen
-      input :premium
+    f.inputs 'Otros' do
+      f.input :imagen
+      f.input :premium
     end
 
-    actions
+    f.actions
   end
 
-  filter :bids, as: :select, collection: proc { Bid.all.map {|b| [b.user.email, b.id]} }
+  filter :bids, as: :select, collection: Bid.all.map {|b| [b.user.email, b.id]}
   filter :price
   filter :premium
 
