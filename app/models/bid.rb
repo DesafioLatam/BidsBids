@@ -4,6 +4,8 @@ class Bid < ActiveRecord::Base
 
   validate :consecutive, :product_expired, on: :create
 
+  scope :ofertantes, -> { joins(:user) }
+
   def consecutive
     return if self.product.nil?
     return if self.product.bids.empty?

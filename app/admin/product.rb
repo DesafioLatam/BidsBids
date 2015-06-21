@@ -6,9 +6,10 @@ ActiveAdmin.register Product do
 
   scope :all, default: true
   scope :premium
+  scope :ofertados
 
   index as: :grid, columns: 5 do |product|
-    div do
+    div(style: 'text-align: center;') do
       a href: admin_product_path(product) do
         image_tag product.imagen
       end
@@ -56,7 +57,7 @@ ActiveAdmin.register Product do
     f.actions
   end
 
-  filter :bids, as: :select, collection: Bid.all.map {|b| [b.user.email, b.id]}
+  filter :bids, as: :select, collection: -> { Bid.all.map {|b| [b.user.email, b.id]} }
   filter :price
   filter :premium
 

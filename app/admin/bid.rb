@@ -5,7 +5,7 @@ ActiveAdmin.register Bid do
   actions :index, :show
 
   filter :product
-  filter :user, as: :select, collection: User.all.map {|u| [u.email, u.id] }
+  filter :user, as: :select, collection: -> { User.all.map {|u| [u.email, u.id] } }
 
   index do
     selectable_column
